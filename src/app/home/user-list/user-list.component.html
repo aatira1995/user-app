@@ -1,0 +1,46 @@
+
+<div class="main">
+  <h2 style="text-align: center;">User List</h2>
+  <div class="header">
+    <div class="form-group has-search">
+      <input type="text" style="width: 70%" placeholder="Search user" (keyup)="searchUser($event.target.value)"/>
+      <div *ngIf="searchData.length == 0 && isSearch" style="color: red;">User is not available</div>
+    </div>
+    <button [routerLink]="['user']" class="btn btn-primary mb-4">Add user</button>
+  </div>
+  <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">User name</th>
+            <th scope="col">Email</th>
+            <th scope="col">DOB</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Gender</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="searchData.length > 0">
+          <tr *ngFor="let data of searchData; let i = index">
+            <td>{{data.user.name.title | titlecase }} {{data.user.name.first | titlecase }} {{data.user.name.last | titlecase }}</td>
+            <td>{{data.user.username}}</td>
+            <td>{{data.user.email}}</td>
+            <td>{{data.user.dob  | date}}</td>
+            <td>{{data.user.phone}}</td>
+            <td>{{data.user.gender | titlecase }}</td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="searchData.length == 0 && !isSearch">
+          <tr *ngFor="let data of userData; let i = index">
+            <td>{{data.user.name.title | titlecase }} {{data.user.name.first | titlecase }} {{data.user.name.last | titlecase }}</td>
+            <td>{{data.user.username}}</td>
+            <td>{{data.user.email}}</td>
+            <td>{{data.user.dob  | date}}</td>
+            <td>{{data.user.phone}}</td>
+            <td>{{data.user.gender | titlecase }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+<ngx-spinner></ngx-spinner>

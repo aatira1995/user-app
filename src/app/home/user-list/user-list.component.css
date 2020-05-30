@@ -1,0 +1,14 @@
+.has-search{
+    padding-left: 2.375rem;
+    width: 90%;
+}
+
+.main{
+    padding: 20px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+}
+

@@ -1,0 +1,37 @@
+<div>
+    <div class="container pt-3">
+        <div class="row justify-content-sm-center">
+            <div class="col-sm-6 col-md-4">
+                <div class="card border-info text-center">
+                    <div class="card-header">
+                      Login
+                    </div>
+                    <div class="card-body">
+                        <div *ngIf="!isCredentialsValid" class="alert">*Please provide valid Credentials</div>
+                        <form [formGroup]="loginForm" class="form-signin">
+                            <div class="control-div">
+                                <input type="text" class="form-control mb-2" required placeholder="UserName" formControlName="userName">
+                            </div>
+                            <div *ngIf="formErrors.userName" class="alert">
+                                <div>
+                                  {{formErrors.userName}}
+                                </div>
+                            </div>
+                            <div class="control-div">
+                                <input type="text" class="form-control mb-2" placeholder="Password" required formControlName="password">
+                            </div>
+                            <div *ngIf="formErrors.password" class="alert">
+                                <div>
+                                  {{formErrors.password}}
+                                </div>
+                            </div>
+                            <div class="button-div">
+                                <button [disabled]="!loginForm.valid" class="btn btn-lg btn-primary btn-block mb-1" [ngClass]="!loginForm.valid?'button-disabled':null" (click)="onSubmit()">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

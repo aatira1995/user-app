@@ -1,0 +1,101 @@
+<div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="card border-info text-center">
+                    <div class="card-header">
+                        User Form
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="userForm" >
+                            <div class="control-div">
+                                <label>Name*</label>
+                                <div>
+                                    <input type="text" required placeholder="Mr/Mrs/Ms" formControlName="title" class="form-control">
+                                </div>
+                                <div>
+                                    <input type="text" placeholder="First name" required formControlName="first" class="form-control">
+                                </div>
+                                <div>
+                                    <input type="text"  placeholder="Last name" required formControlName="last" class="form-control">
+                                </div>
+                            </div>
+                            <div *ngIf="formErrors.first" class="alert">
+                                <div>
+                                  {{formErrors.first}}
+                                </div>
+                            </div>
+                            <div *ngIf="formErrors.last" class="alert">
+                                <div>
+                                  {{formErrors.last}}
+                                </div>
+                            </div>
+                            <div *ngIf="formErrors.title" class="alert">
+                                <div>
+                                  {{formErrors.title}}
+                                </div>
+                            </div>
+                            <div class="control-div">
+                                <label>Email*</label>
+                                <input type="text" placeholder="example@gmail.com" required formControlName="email" class="form-control">
+                            </div>
+                            <div *ngIf="formErrors.email" class="alert">
+                                <div>
+                                  {{formErrors.email}}
+                                </div>
+                            </div>
+                            <div class="control-div">
+                                <label>Phone*</label>
+                                <input type="text" required formControlName="phone" class="form-control">
+                            </div>
+                            <div *ngIf="formErrors.phone" class="alert">
+                                <div>
+                                  {{formErrors.phone}}
+                                </div>
+                            </div>
+                            <div class="control-div">
+                                <label>Gender*</label>
+                                <input type="text" placeholder="Male/Female" required formControlName="gender" class="form-control">
+                            </div>
+                            <div *ngIf="formErrors.gender" class="alert">
+                                <div>
+                                  {{formErrors.gender}}
+                                </div>
+                            </div>
+                            <div class="control-div">
+                                <label>Username*</label>
+                                <input type="text" required formControlName="username" class="form-control">
+                            </div>
+                            <div *ngIf="formErrors.username" class="alert">
+                                <div>
+                                  {{formErrors.username}}
+                                </div>
+                            </div>
+                            <div class="control-div">
+                                <label>Password*</label>
+                                <input type="password" required formControlName="password" class="form-control">
+                            </div>
+                            <div *ngIf="formErrors.password" class="alert">
+                                <div>
+                                  {{formErrors.password}}
+                                </div>
+                            </div>
+                            <div class="control-div">
+                                <label>Date of birth*</label>
+                                <input type="text" placeholder="mm/dd/yyyy" required formControlName="dob" class="form-control">
+                            </div>
+                            <div *ngIf="formErrors.dob" class="alert">
+                                <div>
+                                  {{formErrors.dob}}
+                                </div>
+                            </div>
+                            <div class="button-div">
+                                <button class="btn btn-primary mt-4" [disabled]="!userForm.valid" [ngClass]="!userForm.valid?'button-disabled':null" (click)="onSubmit()">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
